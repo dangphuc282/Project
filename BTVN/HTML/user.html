@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management</title>
+  <link rel="stylesheet" href="../CSS/user.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2><i class="fa-solid fa-chart-simple"></i> Trello</h2>
+      <hr>
+      <nav>
+        <p style="font-size: 13px;">YOUR DASHBROARD</p>
+        <a href="#"><i class="fa-solid fa-list"></i> User dashboard</a>
+        <a href="#"><i class="fa-regular fa-star"></i> Add new user</a>
+        <hr>
+        <a href="#" class="signout"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <h1><i class="fa-solid fa-list"></i> User Management</h1>
+      <hr>
+
+      <div class="search-container">
+        <input type="text" placeholder="Search user by name">
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>User code</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Birthday</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        
+      </table>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button>&laquo;</button>
+        <button>1</button>
+        <button>2</button>
+        <button class="active-page">3</button>
+        <button>4</button>
+        <button>5</button>
+        <span>...</span>
+        <button>20</button>
+        <button>&raquo;</button>
+      </div>
+    </main>
+  </div>
+<script src="../JS/user.js"></script>
+</body>
+</html>
