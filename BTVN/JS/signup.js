@@ -1,38 +1,60 @@
-// lay thong tin localStorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
-console.log("Tài khoản hiện có:", users);
 
 let form = document.getElementById("signup-form");
-
 form.addEventListener("submit", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  // lay gia tri tu input
-  let email = document.getElementById("email").value.trim();
-  let username = document.getElementById("username").value.trim();
-  let password = document.getElementById("password").value;
+    // lay gia tri nguoi dung nhap vao
+    let email = document.getElementById("email").value.trim();
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
 
-  // check xem ton tai chua
-  let existedUser = users.find((u) => u.email === email);
-  if (existedUser) {
-    alert("Email đã được sử dụng. Vui lòng chọn email khác.");
-    return;
-  }
+    // hien thi phan loi
+    let emailError = document.getElementById("emailError");
+    let usernameError = document.getElementById("usernameError");
+    let passwordError = document.getElementById("passwordError");
 
-//  tao nguoi dung moi
-  let newUser = {
-    id: Date.now(), 
-    email,
-    username,
-    password,
-  };
+    // kiem tra dinh dang
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const usernameRegex = /^[a-zA-Z0-9_]{4,16}$/;
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
-//   them va luu vao lai
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
+    // xoa thong bao loi cu
+    emailError.innerText = "";
+    usernameError.innerText = "";
+    passwordError.innerText = "";
 
-  alert("Đăng ký thành công!");
+    let isValid = true;
 
-// chuyen ve home
-  window.location.href = "login.html";
+    // check email
+    if (!emailRegex.test(email)) {
+        emailError.innerText = "Email không hợp lệ";
+        isValid = false;
+    }
+
+//    check user name
+    if (!usernameRegex.test(username)) {
+        usernameError.innerText = "Username phải dài 4-16 ký tự và không chứa ký tự đặc biệt";
+        isValid = false;
+    }
+
+    // check password
+    if (!passwordRegex.test(password)) {
+        passwordError.innerText = "Password phải có ít nhất 6 ký tự bao gồm chữ và số";
+        isValid = false;
+    }
+
+    // luu vao sto
+    if (isValid) {
+        let newUser = {
+            id: users.length + 1,
+            username: username,
+            email: email,
+            password: password,
+            status: true,
+        };
+        users.push(newUser);
+        localStorage.setItem("users", JSON.stringify(users));
+        window.location.href = "";
+    }
 });

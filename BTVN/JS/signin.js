@@ -41,7 +41,7 @@ form.addEventListener("submit", function (e) {
     successBox.style.display = "block";
 
     setTimeout(() => {
-      window.location.href = "index.html"; // đổi nếu bạn có trang khác
+      window.location.href = "http://127.0.0.1:5500/HTML/user.html"; 
     }, 1500);
   }
 });
