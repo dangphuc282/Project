@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management</title>
+  <link rel="stylesheet" href="../CSS/addnewuser.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+  .highlight-error {
+    border: 2px solid red !important;
+    background-color: #fef2f2;
+    cursor: not-allowed;
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2><i class="fa-solid fa-chart-simple"></i> Trello</h2>
+      <hr>
+      <nav>
+        <p style="font-size: 13px;">YOUR DASHBROARD</p>
+        <a href="http://127.0.0.1:5500/HTML/user.html#"><i class="fa-solid fa-list"></i> User dashboard</a>
+        <a href="http://127.0.0.1:5500/HTML/addnewuser.html"><i class="fa-regular fa-star"></i> Add new user</a>
+        <hr>
+        <a href="http://127.0.0.1:5500/HTML/signin.html" class="signout"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+  <h1><i class="fa-solid fa-list"></i> User Management</h1>
+  <hr>
+
+  <form id="user-form" class="user-form">
+    <h2>Edit user</h2>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>User code</label>
+        <input type="text" id="userCode" placeholder="Enter user code" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter username">
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter email" >
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+      </div>
+
+      <div class="inline-three-group">
+  <!-- Role -->
+  <div class="form-group">
+    <label>Role</label>
+    <select id="role">
+      <option value="ADMIN">ADMIN</option>
+      <option value="USER">USER</option>
+    </select>
+  </div>
+
+  <!-- Birthday -->
+  <div class="form-group">
+    <label>Birthday</label>
+    <input type="date" id="birthday" value="1995-01-31">
+  </div>
+
+  <!-- Status -->
+  <div class="form-group status-group">
+    <label>Status</label>
+    <div class="radio-group">
+      <label><input type="radio" name="status" value="active" checked> Active</label>
+      <label><input type="radio" name="status" value="inactive"> Deactivate</label>
+    </div>
+  </div>
+</div>
+
+
+      <div class="form-group full-width">
+        <label>Description</label>
+        <textarea id="description" rows="4" placeholder="Enter description..."></textarea>
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" class="back-btn">Back</button>
+      <button type="submit" class="add-btn">Save</button>
+    </div>
+  </form>
+</main>
+
+  </div>
+<script src="../JS/edituser.js"></script>
+</body>
+</html>
